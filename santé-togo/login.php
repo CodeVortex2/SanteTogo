@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($email) || empty($password)) {
         $error = "Veuillez remplir tous les champs.";
     } else {
-        $sql = "SELECT id, nom, prenom, email, password, role FROM users WHERE email = ? or SELECT id, nom, prenom, email, password, role FROM medecins WHERE email = ?";
+        $sql = "SELECT id, nom, prenom, email, password, role FROM users WHERE email = ?";
         
         if ($stmt = mysqli_prepare($conn, $sql)) {
             mysqli_stmt_bind_param($stmt, "s", $email);
